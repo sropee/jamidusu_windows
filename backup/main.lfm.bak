@@ -1,0 +1,650 @@
+object Form1: TForm1
+  Left = 249
+  Height = 480
+  Top = 111
+  Width = 800
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = '자미두수명반'
+  ClientHeight = 480
+  ClientWidth = 800
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  ParentBiDiMode = False
+  Position = poDefaultPosOnly
+  ShowHint = True
+  LCLVersion = '1.6.4.0'
+  object Image1: TImage
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 0
+    Height = 480
+    Top = 0
+    Width = 800
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    OnMouseDown = Image1MouseDown
+  end
+  object tgbxYajasi: TToggleBox
+    Left = 144
+    Height = 23
+    Hint = '조자시/야자시 전환'
+    Top = 131
+    Width = 24
+    Caption = '조'
+    OnChange = tgbxYajasiChange
+    TabOrder = 4
+    Visible = False
+  end
+  object pnlControl: TPanel
+    Left = 169
+    Height = 72
+    Top = 59
+    Width = 396
+    BevelOuter = bvNone
+    ClientHeight = 72
+    ClientWidth = 396
+    Color = clWhite
+    ParentColor = False
+    TabOrder = 0
+    object meBirth: TMaskEdit
+      Left = 98
+      Height = 15
+      Hint = '생년월일시 입력(F5)'
+      Top = 6
+      Width = 124
+      AutoSelect = False
+      BorderStyle = bsNone
+      CharCase = ecNormal
+      Font.Height = -15
+      MaxLength = 17
+      ParentFont = False
+      TabOrder = 0
+      OnChange = meBirthChange
+      OnKeyDown = meBirthKeyDown
+      OnKeyPress = meBirthKeyPress
+      EditMask = '0000.00.00. 00:00;1;_'
+      Text = '    .  .  .   :  '
+      SpaceChar = '_'
+    end
+    object cmbHour: TComboBox
+      Left = 224
+      Height = 23
+      Top = 3
+      Width = 35
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        '시'
+        '자시'
+        '축시'
+        '인시'
+        '묘시'
+        '진시'
+        '사시'
+        '오시'
+        '미시'
+        '신시'
+        '유시'
+        '술시'
+        '해시'
+        '야자시'
+      )
+      OnChange = cmbHourChange
+      Style = csDropDownList
+      TabOrder = 1
+      Text = '시'
+    end
+    object cmbYeokbeop: TComboBox
+      Left = 258
+      Height = 23
+      Hint = '양력/음력평달/음력윤달'
+      Top = 3
+      Width = 35
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        '양력'
+        '음평'
+        '음윤'
+      )
+      OnChange = cmbYeokbeopChange
+      Style = csDropDownList
+      TabOrder = 3
+      Text = '양력'
+    end
+    object btnDisplay: TButton
+      Left = 360
+      Height = 23
+      Hint = '명반 작성'
+      Top = 3
+      Width = 37
+      Caption = '보기'
+      Color = 16512462
+      Default = True
+      OnClick = btnDisplayClick
+      TabOrder = 4
+    end
+    object tgbxDaehan: TToggleBox
+      Left = 1
+      Height = 23
+      Hint = 'F1'
+      Top = 26
+      Width = 96
+      Caption = '대한: 125~124'
+      OnChange = tgbxDaehanChange
+      TabOrder = 5
+    end
+    object tgbxYunyeon: TToggleBox
+      Left = 96
+      Height = 23
+      Hint = 'F2'
+      Top = 26
+      Width = 89
+      Caption = '유년: 117세'
+      OnChange = tgbxYunyeonChange
+      TabOrder = 6
+    end
+    object tgbxYuwol: TToggleBox
+      Left = 184
+      Height = 23
+      Hint = 'F3'
+      Top = 26
+      Width = 89
+      Caption = '유월: 12월(음)'
+      OnChange = tgbxYuwolChange
+      TabOrder = 7
+    end
+    object tgbxYuil: TToggleBox
+      Left = 272
+      Height = 23
+      Hint = 'F4'
+      Top = 26
+      Width = 89
+      Caption = '유일: 23일(음)'
+      OnChange = tgbxYuilChange
+      TabOrder = 8
+    end
+    object btnAC: TButton
+      Left = 360
+      Height = 23
+      Hint = '선천 명반으로 돌아가기(ESC)'
+      Top = 26
+      Width = 37
+      Cancel = True
+      Caption = '선천'
+      Enabled = False
+      OnClick = btnACClick
+      TabOrder = 9
+    end
+    object edtName: TEdit
+      Left = 1
+      Height = 23
+      Hint = '이름 입력'
+      Top = 4
+      Width = 60
+      BorderSpacing.CellAlignVertical = ccaCenter
+      Color = clWhite
+      ParentFont = False
+      TabOrder = 10
+      Text = '이름없음'
+    end
+    object cmbSex: TComboBox
+      Left = 292
+      Height = 23
+      Top = 3
+      Width = 35
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        '남'
+        '여'
+      )
+      OnChange = cmbSexChange
+      Style = csDropDownList
+      TabOrder = 2
+      Text = '남'
+    end
+    object cmbBan: TComboBox
+      Left = 326
+      Height = 23
+      Hint = '천반/지반/인반'
+      Top = 3
+      Width = 34
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        '천반'
+        '지반'
+        '인반'
+      )
+      OnChange = cmbBanChange
+      Style = csDropDownList
+      TabOrder = 11
+      Text = '천반'
+    end
+    object tgbxList: TToggleBox
+      Left = 1
+      Height = 23
+      Hint = 'Alt+L'
+      Top = 49
+      Width = 32
+      Caption = 'List'
+      OnChange = tgbxListChange
+      TabOrder = 12
+    end
+    object btnSave: TButton
+      Left = 32
+      Height = 23
+      Hint = 'Alt+S'
+      Top = 49
+      Width = 33
+      Caption = '저장'
+      Enabled = False
+      OnClick = btnSaveClick
+      TabOrder = 13
+    end
+    object tgbxMemo: TToggleBox
+      Left = 64
+      Height = 23
+      Top = 49
+      Width = 33
+      Caption = '메모'
+      OnClick = tgbxMemoClick
+      TabOrder = 15
+    end
+    object tgbxSajuFinder: TToggleBox
+      Left = 184
+      Height = 23
+      Top = 49
+      Width = 73
+      Caption = '사주로 찾기'
+      OnClick = tgbxSajuFinderClick
+      TabOrder = 17
+    end
+    object btnImage: TButton
+      Left = 287
+      Height = 23
+      Hint = 'png 그림 파일로 현재 명반 저장'
+      Top = 49
+      Width = 74
+      Caption = '이미지 저장'
+      OnClick = btnImageClick
+      TabOrder = 14
+    end
+    object tgbxHanja: TToggleBox
+      Left = 360
+      Height = 23
+      Hint = '명반 표시 한글/한자 전환'
+      Top = 49
+      Width = 37
+      Caption = '한글'
+      OnChange = tgbxHanjaChange
+      TabOrder = 16
+    end
+    object tgbxNyeonju: TToggleBox
+      Left = 61
+      Height = 22
+      Hint = '음력 年柱-생월일시로 입력'
+      Top = 4
+      Width = 36
+      Caption = '年柱'
+      OnChange = tgbxNyeonjuChange
+      TabOrder = 18
+    end
+    object edtNyeonju: TEdit
+      Left = 96
+      Height = 23
+      Hint = '한글로 년주 입력(예: 갑자)'
+      Top = 4
+      Width = 37
+      Alignment = taCenter
+      Color = clFuchsia
+      OnKeyUp = edtNyeonjuKeyUp
+      TabOrder = 19
+      Text = '입력'
+      Visible = False
+    end
+    object btnPrint: TButton
+      Left = 256
+      Height = 23
+      Hint = '프린터로 출력'
+      Top = 49
+      Width = 32
+      Caption = '출력'
+      OnClick = btnPrintClick
+      TabOrder = 20
+    end
+    object tgbxChartFinder: TToggleBox
+      Left = 96
+      Height = 23
+      Top = 49
+      Width = 89
+      Caption = '명반으로 찾기'
+      OnChange = tgbxChartFinderChange
+      TabOrder = 21
+    end
+  end
+  object Memo1: TMemo
+    Left = 355
+    Height = 165
+    Top = 131
+    Width = 210
+    BorderStyle = bsNone
+    Color = clYellow
+    Enabled = False
+    Lines.Strings = (
+      '메모사항'
+    )
+    OnExit = Memo1Exit
+    OnKeyDown = Memo1KeyDown
+    ScrollBars = ssVertical
+    TabOrder = 1
+    Visible = False
+  end
+  object pnlSajuFinder: TPanel
+    Left = 170
+    Height = 127
+    Top = 297
+    Width = 136
+    BevelOuter = bvNone
+    ClientHeight = 127
+    ClientWidth = 136
+    TabOrder = 3
+    Visible = False
+    object edtSajuFinder: TEdit
+      Left = 0
+      Height = 24
+      Hint = '한글로 여덟 글자 입력'
+      Top = 0
+      Width = 134
+      Color = 8715252
+      Font.Name = '굴림체'
+      OnKeyUp = edtSajuFinderKeyUp
+      ParentFont = False
+      TabOrder = 0
+    end
+    object lstSajuFinder: TListBox
+      Left = 0
+      Height = 104
+      Hint = '더블 클릭하면 날짜 입력'
+      Top = 23
+      Width = 134
+      Items.Strings = (
+        '2222.12.22. 22:22'
+      )
+      ItemHeight = 15
+      OnDblClick = lstSajuFinderDblClick
+      TabOrder = 1
+    end
+  end
+  object pnlPreferences: TPanel
+    Left = 328
+    Height = 153
+    Top = 297
+    Width = 396
+    BevelOuter = bvNone
+    ClientHeight = 153
+    ClientWidth = 396
+    TabOrder = 5
+    Visible = False
+    object PageControl1: TPageControl
+      Left = 0
+      Height = 127
+      Top = 0
+      Width = 398
+      ActivePage = TabSheet1
+      TabIndex = 0
+      TabOrder = 0
+      object TabSheet1: TTabSheet
+        Caption = '일반'
+      end
+      object TabSheet2: TTabSheet
+        Caption = '표시'
+        ClientHeight = 99
+        ClientWidth = 390
+        object ColorBox1: TColorBox
+          Left = 10
+          Height = 22
+          Top = 10
+          Width = 100
+          ItemHeight = 16
+          TabOrder = 0
+        end
+      end
+    end
+    object Button1: TButton
+      Left = 247
+      Height = 25
+      Top = 129
+      Width = 75
+      Caption = 'Button1'
+      TabOrder = 1
+    end
+    object Button2: TButton
+      Left = 321
+      Height = 25
+      Top = 129
+      Width = 75
+      Caption = 'Button2'
+      TabOrder = 2
+    end
+  end
+  object pnlChartFinder: TPanel
+    Left = 570
+    Height = 153
+    Top = 131
+    Width = 187
+    BevelOuter = bvNone
+    ClientHeight = 153
+    ClientWidth = 187
+    TabOrder = 6
+    Visible = False
+    object tgbxChartFinderJwabo: TToggleBox
+      Left = 0
+      Height = 23
+      Top = 0
+      Width = 186
+      Caption = '좌보(左輔)의 위치를 선택하세요'
+      OnChange = tgbxChartFinderJwaboChange
+      TabOrder = 0
+    end
+    object tgbxChartFinderJigong: TToggleBox
+      Left = 0
+      Height = 23
+      Top = 22
+      Width = 186
+      Caption = '지공(地空)의 위치를 선택하세요'
+      OnChange = tgbxChartFinderJigongChange
+      TabOrder = 1
+    end
+    object tgbxChartFinderSamtae: TToggleBox
+      Left = 0
+      Height = 23
+      Top = 44
+      Width = 186
+      Caption = '삼태(三台)의 위치를 선택하세요'
+      OnChange = tgbxChartFinderSamtaeChange
+      TabOrder = 2
+    end
+    object tgbxChartFinderJami: TToggleBox
+      Left = 0
+      Height = 23
+      Top = 66
+      Width = 186
+      Caption = '자미(紫微)의 위치를 선택하세요'
+      OnChange = tgbxChartFinderJamiChange
+      TabOrder = 3
+    end
+    object tgbxChartFinderSungong: TToggleBox
+      Left = 0
+      Height = 23
+      Top = 88
+      Width = 186
+      Caption = '순공(旬空)의 위치를 선택하세요'
+      OnChange = tgbxChartFinderSungongChange
+      TabOrder = 4
+    end
+    object tgbxChartFinderCheongong: TToggleBox
+      Left = 0
+      Height = 23
+      Top = 110
+      Width = 186
+      Caption = '천공(天空)의 위치를 선택하세요'
+      OnChange = tgbxChartFinderCheongongChange
+      TabOrder = 5
+    end
+    object btnChartFinderResult: TButton
+      Left = 0
+      Height = 21
+      Top = 132
+      Width = 186
+      Caption = '결과 입력'
+      Enabled = False
+      OnClick = btnChartFinderResultClick
+      TabOrder = 6
+    end
+  end
+  object pnlList: TPanel
+    Left = 168
+    Height = 165
+    Top = 131
+    Width = 185
+    BevelOuter = bvNone
+    Caption = '제기pnlList'
+    ClientHeight = 165
+    ClientWidth = 185
+    Color = clWhite
+    ParentColor = False
+    TabOrder = 2
+    Visible = False
+    object btnListAdd: TButton
+      Left = 0
+      Height = 17
+      Hint = '현재 입력된 정보를 명단에 추가합니다.'
+      Top = 148
+      Width = 32
+      Caption = '추가'
+      Font.Height = -15
+      Font.Style = [fsBold]
+      OnClick = btnListAddClick
+      ParentFont = False
+      TabOrder = 0
+    end
+    object btnListDelete: TButton
+      Left = 31
+      Height = 17
+      Top = 148
+      Width = 32
+      Caption = '삭제'
+      Enabled = False
+      Font.Height = -15
+      Font.Name = 'Default'
+      Font.Style = [fsBold]
+      OnClick = btnListDeleteClick
+      ParentFont = False
+      TabOrder = 1
+    end
+    object btnListUpward: TButton
+      Left = 62
+      Height = 17
+      Hint = '위로 올리기'
+      Top = 148
+      Width = 30
+      Caption = '▲'
+      Enabled = False
+      OnClick = btnListUpwardClick
+      TabOrder = 2
+    end
+    object btnListDownward: TButton
+      Left = 91
+      Height = 17
+      Hint = '아래로 내리기'
+      Top = 148
+      Width = 30
+      Caption = '▼'
+      Enabled = False
+      OnClick = btnListDownwardClick
+      TabOrder = 3
+    end
+    object btnListFind: TButton
+      Left = 152
+      Height = 17
+      Top = 148
+      Width = 33
+      Caption = '찾기'
+      Font.Height = -15
+      Font.Style = [fsBold]
+      OnClick = btnListFindClick
+      ParentFont = False
+      TabOrder = 4
+    end
+    object btnListUpdate: TButton
+      Left = 120
+      Height = 17
+      Hint = '선택된 항목을 현재 정보로 갱신합니다.'
+      Top = 148
+      Width = 33
+      Caption = '갱신'
+      Enabled = False
+      Font.Height = -15
+      Font.Style = [fsBold]
+      OnClick = btnListUpdateClick
+      ParentFont = False
+      TabOrder = 6
+    end
+    object lstList: TListBox
+      Left = 1
+      Height = 149
+      Top = 0
+      Width = 184
+      ExtendedSelect = False
+      ItemHeight = 0
+      OnSelectionChange = lstListSelectionChange
+      TabOrder = 5
+    end
+  end
+  object PrintDialog1: TPrintDialog
+    left = 10
+    top = 10
+  end
+  object ActionList1: TActionList
+    left = 39
+    top = 10
+    object actDaehan: TAction
+      Caption = 'actDaehan'
+      OnExecute = actDaehanExecute
+      ShortCut = 112
+    end
+    object actYunyeon: TAction
+      Caption = 'actYunyeon'
+      OnExecute = actYunyeonExecute
+      ShortCut = 113
+    end
+    object actYuwol: TAction
+      Caption = 'actYuwol'
+      OnExecute = actYuwolExecute
+      ShortCut = 114
+    end
+    object actYuil: TAction
+      Caption = 'actYuil'
+      OnExecute = actYuilExecute
+      ShortCut = 115
+    end
+    object actSave: TAction
+      Caption = 'actSave'
+      OnExecute = actSaveExecute
+      ShortCut = 32851
+    end
+    object actList: TAction
+      Caption = 'actList'
+      OnExecute = actListExecute
+      ShortCut = 32844
+    end
+  end
+end
