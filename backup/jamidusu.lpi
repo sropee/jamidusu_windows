@@ -48,8 +48,9 @@
       <Unit0>
         <Filename Value="jamidusu.lpr"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="25"/>
-        <CursorPos X="25" Y="25"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="33"/>
+        <CursorPos X="31" Y="47"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -59,12 +60,9 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="213"/>
-        <CursorPos X="27" Y="228"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="calendar_unit.pas"/>

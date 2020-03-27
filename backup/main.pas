@@ -225,7 +225,7 @@ const
   CCellMargin = 2;
   CCanvasFont = '굴림';
   CFixedFont = '굴림체';
-  CProjectVersion = '0.6.8';
+  CProjectVersion = '0.6.7';
   CWebsite = 'http://tinyurl.com/jamidusu';
   CRealSite = 'http://zwds.egloos.com/734433';
 
