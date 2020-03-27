@@ -776,8 +776,8 @@ begin
       if Daeun mod 3 = 2 then Daeun:=Daeun div 3 + 1
       else Daeun:=Daeun div 3;
 
-      Daeun:=Daeun mod 10;
-      if Daeun = 0 then Daeun:=10;
+      // Daeun:=Daeun mod 10;
+      // if Daeun = 0 then Daeun:=10;
       Font.Size:=10;
       Font.Name:=CFixedFont;
       Font.Color:=clBlack;
